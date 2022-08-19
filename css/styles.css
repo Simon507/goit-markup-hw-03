@@ -26,7 +26,7 @@ html {
 *::before,
 *::after {
   box-sizing: inherit;
-  outline: 1px solid teal;
+  /* outline: 1px solid teal; */
 }
 
 body {
@@ -40,12 +40,13 @@ h2,
 h3,
 p {
   margin: 0;
+  padding: 0;
 }
 
-.container {
-  width: 1230px;
-  padding-left: 15px;
-  padding-right: 15px;
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 .list {
@@ -53,8 +54,19 @@ p {
   padding: 0;
   list-style: none;
 }
+.container {
+  width: 1200px;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: center;
+}
+.flexbox {
+  display: flex;
+  align-items: center;
+}
 .main-header {
-  margin-bottom: 94px;
+  border-bottom: 1px solid #ececec;
+  margin-bottom: 37px;
 }
 .link-logo,
 .link-logo1 {
@@ -66,11 +78,18 @@ p {
   text-decoration: none;
 }
 .link-logo {
+  margin-right: 93px;
   color: var(--logo-black-color);
 }
 .link-logo1,
 .footer-logo1 {
   color: var(--logo-blue-color);
+}
+.nav-list-item {
+  display: block;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  cursor: pointer;
 }
 .nav-link,
 .mailto,
@@ -80,6 +99,17 @@ p {
   line-height: 1.14;
   letter-spacing: 0.02em;
   text-decoration: none;
+}
+.nav-list {
+  display: flex;
+  gap: 50px;
+}
+.contacts-list {
+  display: flex;
+  margin-left: auto;
+}
+.mailto {
+  margin-right: 50px;
 }
 .nav-link {
   color: var(--main-text-color);
@@ -112,9 +142,10 @@ p {
   margin: -1px;
 }
 .hero {
+  padding-top: 200px;
   background-color: var(--hero-bg-color);
   text-align: center;
-  margin-bottom: 94px;
+  padding-bottom: 200px;
 }
 .hero-title {
   font-weight: 900;
@@ -124,6 +155,7 @@ p {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--hero-text-color);
+  margin-bottom: 30px;
 }
 .hero-btn {
   min-width: 216px;
@@ -134,7 +166,9 @@ p {
   font-family: inherit;
   background-color: var(--hero-btn-color);
   color: var(--hero-text-color);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15); */
+  /* border-bottom: rgba(0, 0, 0, 0.15); */
+  /* border: 0; */
   border-radius: 4px;
   font-weight: 700;
   font-size: 16px;
@@ -147,7 +181,20 @@ p {
   cursor: pointer;
 }
 .benefits {
-  margin-bottom: 94px;
+  padding-top: 57px;
+  padding-bottom: 94px;
+}
+.benefits-list {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+.benefits-item {
+  width: 270px;
+  text-align: left;
+
+  /* width: calc((100%-90px) / 4); 
+  Это почему-то не срабатывает в файерфокс */
 }
 .benefits-item-title {
   margin-bottom: 10px;
@@ -170,29 +217,47 @@ p {
   line-height: 1.17;
   letter-spacing: 0.03em;
 }
+
 .occupation {
-  margin-bottom: 94px;
+  padding-bottom: 94px;
+  flex-direction: column;
 }
 .occupation-title {
   margin-bottom: 50px;
+  justify-content: center;
 }
-.occupation-list-img,
-.team-img {
-  display: block;
+.occupation-list {
+  display: flex;
+  gap: 30px;
 }
 .team {
-  background-color: var(--team-bg-color);
-}
-.team-item {
   padding-top: 94px;
   padding-bottom: 94px;
+  flex-direction: column;
+  background-color: var(--team-bg-color);
+}
+.team-title {
+  margin-bottom: 50px;
+}
+.team-img {
+  margin-bottom: 30px;
+}
+.team-list {
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.team-item {
   background-color: var(--team-card-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 0px 0px 4px 4px;
 }
 .team-item-title {
   font-weight: 500;
   font-size: 16px;
   line-height: 1.19;
   letter-spacing: 0.03em;
+  margin-bottom: 10px;
 }
 .team-role {
   font-size: 16px;
@@ -204,10 +269,16 @@ p {
 }
 .portfolio-filter {
   margin-bottom: 34px;
-  /* display: flex; */
 }
 .site-footer {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  flex-direction: column;
   background-color: var(--footer-bg-color);
+}
+.site-footer .flexbox {
+  flex-direction: column;
+  align-items: flex-start;
 }
 .footer-logo {
   font-family: 'Raleway', sans-serif;
@@ -217,6 +288,13 @@ p {
   letter-spacing: 0.03em;
   color: var(--footer-text-color);
   text-decoration: none;
+  margin-bottom: 20px;
+}
+.footer-contacts-list {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 9px;
 }
 .footer-address,
 .footer-mailto,
@@ -242,7 +320,6 @@ p {
 .footer-tel:focus {
   color: var(--accent-color);
 }
-
 .portfolio-btn {
   padding-top: 6px;
   padding-right: 22px;
