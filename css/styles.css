@@ -62,6 +62,7 @@ img {
   padding-left: 15px;
   padding-right: 15px;
   text-align: center;
+  margin: 0 auto;
 }
 .flexbox {
   display: flex;
@@ -223,14 +224,11 @@ img {
   font-size: 36px;
   line-height: 1.17;
   letter-spacing: 0.03em;
+  margin-bottom: 50px;
 }
 .occupation {
   padding-bottom: 94px;
   flex-direction: column;
-}
-.occupation-title {
-  margin-bottom: 50px;
-  justify-content: center;
 }
 .occupation-list {
   display: flex;
@@ -244,9 +242,6 @@ img {
 .team {
   flex-direction: column;
   background-color: var(--team-bg-color);
-}
-.team-title {
-  margin-bottom: 50px;
 }
 .team-list {
   flex-wrap: wrap;
@@ -329,8 +324,7 @@ img {
 }
 .portfolio-filter {
   display: flex;
-  margin-left: auto;
-  margin-right: auto;
+  justify-content: center;
   margin-bottom: 50px;
 }
 .portfolio-btn {
