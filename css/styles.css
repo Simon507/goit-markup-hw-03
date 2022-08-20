@@ -26,7 +26,9 @@ html {
 *::before,
 *::after {
   box-sizing: inherit;
-  /* outline: 1px solid teal; */
+  /* outline: 1px solid teal; 
+  это я оставил пока для удобства работы
+  потом приберу*/
 }
 
 body {
@@ -38,7 +40,8 @@ body {
 h1,
 h2,
 h3,
-p {
+p,
+a {
   margin: 0;
   padding: 0;
 }
@@ -66,7 +69,6 @@ img {
 }
 .main-header {
   border-bottom: 1px solid #ececec;
-  margin-bottom: 37px;
 }
 .link-logo,
 .link-logo1 {
@@ -76,6 +78,8 @@ img {
   line-height: 1.19;
   letter-spacing: 0.03em;
   text-decoration: none;
+  padding-top: 24px;
+  padding-bottom: 25px;
 }
 .link-logo {
   margin-right: 93px;
@@ -85,7 +89,9 @@ img {
 .footer-logo1 {
   color: var(--logo-blue-color);
 }
-.nav-list-item {
+.nav-list-item,
+.mailto,
+.telephone {
   display: block;
   padding-top: 32px;
   padding-bottom: 32px;
@@ -102,7 +108,9 @@ img {
 }
 .nav-list {
   display: flex;
-  gap: 50px;
+}
+.nav-list-item:not(:last-child) {
+  margin-right: 50px;
 }
 .contacts-list {
   display: flex;
@@ -166,9 +174,8 @@ img {
   font-family: inherit;
   background-color: var(--hero-btn-color);
   color: var(--hero-text-color);
-  /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15); */
-  /* border-bottom: rgba(0, 0, 0, 0.15); */
-  /* border: 0; */
+  border: 0;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 1);
   border-radius: 4px;
   font-weight: 700;
   font-size: 16px;
@@ -179,6 +186,7 @@ img {
 .hero-btn:focus {
   background-color: var(--hero-btn-act-color);
   cursor: pointer;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
 .benefits {
   padding-top: 57px;
@@ -186,15 +194,14 @@ img {
 }
 .benefits-list {
   display: flex;
-  gap: 30px;
   flex-wrap: wrap;
 }
 .benefits-item {
-  width: 270px;
   text-align: left;
-
-  /* width: calc((100%-90px) / 4); 
-  Это почему-то не срабатывает в файерфокс */
+  flex-basis: calc((100% - 90px) / 4);
+}
+.benefits-item:not(:last-child) {
+  margin-right: 30px;
 }
 .benefits-item-title {
   margin-bottom: 10px;
@@ -217,7 +224,6 @@ img {
   line-height: 1.17;
   letter-spacing: 0.03em;
 }
-
 .occupation {
   padding-bottom: 94px;
   flex-direction: column;
@@ -228,7 +234,12 @@ img {
 }
 .occupation-list {
   display: flex;
-  gap: 30px;
+}
+.occupation-list-item {
+  flex-basis: calc((100% - 60px) / 3);
+}
+.occupation-list-item:not(:last-child) {
+  margin-right: 30px;
 }
 .team {
   padding-top: 94px;
@@ -239,18 +250,22 @@ img {
 .team-title {
   margin-bottom: 50px;
 }
-.team-img {
-  margin-bottom: 30px;
-}
 .team-list {
   flex-wrap: wrap;
-  gap: 30px;
+}
+.team-card-txt {
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 .team-item {
+  flex-basis: calc((100% - 90px) / 4);
   background-color: var(--team-card-color);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 0px 0px 4px 4px;
+}
+.team-item:not(:last-child) {
+  margin-right: 30px;
 }
 .team-item-title {
   font-weight: 500;
@@ -263,12 +278,6 @@ img {
   font-size: 16px;
   line-height: 1.19;
   letter-spacing: 0.03em;
-}
-.portfolio {
-  margin-bottom: 94px;
-}
-.portfolio-filter {
-  margin-bottom: 34px;
 }
 .site-footer {
   padding-top: 60px;
@@ -320,6 +329,16 @@ img {
 .footer-tel:focus {
   color: var(--accent-color);
 }
+.portfolio {
+  padding-top: 94px;
+  padding-bottom: 94px;
+}
+.portfolio-filter {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+}
 .portfolio-btn {
   padding-top: 6px;
   padding-right: 22px;
@@ -335,6 +354,9 @@ img {
   border-radius: 4px;
   background-color: var(--portfolio-btn-color);
 }
+.porfolio-filter-list:not(:last-child) {
+  margin-right: 8px;
+}
 .portfolio-btn:hover,
 .portfolio-btn:focus {
   padding-top: 6px;
@@ -345,17 +367,32 @@ img {
   background-color: var(--accent-color);
   cursor: pointer;
 }
-.portfolio-item {
-  border: 1px solid var(--portfolio-item-border);
+.portfolio-list {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: left;
 }
-.portfolio-img {
-  display: block;
+.portfolio-item {
+  flex-basis: calc((100% - 60px) / 3);
+}
+.portfolio-item:not(:nth-child(3n)) {
+  margin-right: 30px;
+}
+.portfolio-item:not(:nth-last-child(-n + 3)) {
+  margin-bottom: 30px;
+}
+.portfolio-card-txt {
+  padding: 20px;
+  border-left: 1px solid var(--portfolio-item-border);
+  border-right: 1px solid var(--portfolio-item-border);
+  border-bottom: 1px solid var(--portfolio-item-border);
 }
 .potfolio-title {
   font-weight: 700;
   font-size: 18px;
   line-height: 2;
   letter-spacing: 0.06em;
+  margin-bottom: 4px;
 }
 .portfolio-txt {
   font-size: 16px;
