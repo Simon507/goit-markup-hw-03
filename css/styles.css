@@ -149,6 +149,10 @@ img {
   clip-path: inset(50%);
   margin: -1px;
 }
+.section {
+  padding-top: 94px;
+  padding-bottom: 94px;
+}
 .hero {
   padding-top: 200px;
   background-color: var(--hero-bg-color);
@@ -187,10 +191,6 @@ img {
   background-color: var(--hero-btn-act-color);
   cursor: pointer;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-}
-.benefits {
-  padding-top: 57px;
-  padding-bottom: 94px;
 }
 .benefits-list {
   display: flex;
@@ -242,8 +242,6 @@ img {
   margin-right: 30px;
 }
 .team {
-  padding-top: 94px;
-  padding-bottom: 94px;
   flex-direction: column;
   background-color: var(--team-bg-color);
 }
@@ -328,10 +326,6 @@ img {
 .footer-mailto:focus,
 .footer-tel:focus {
   color: var(--accent-color);
-}
-.portfolio {
-  padding-top: 94px;
-  padding-bottom: 94px;
 }
 .portfolio-filter {
   display: flex;
